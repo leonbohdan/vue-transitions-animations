@@ -1,5 +1,9 @@
 <script setup>
 import { ref } from "vue";
+import { useTransitionStore } from "@/stores/useTransitionStore";
+
+const transitionStore = useTransitionStore();
+
 const showMenu = ref(false);
 </script>
 
@@ -7,8 +11,12 @@ const showMenu = ref(false);
   <div class="transitions">
     <h1>Transitions</h1>
 
+    <button v-wave class="transitions__btn" @click="transitionStore.toggleModal()">
+      Show Modal
+    </button>
+
     <div class="transitions__menu">
-      <button v-wave class="transitions__menu-btn" @click="showMenu = !showMenu">
+      <button v-wave class="transitions__btn" @click="showMenu = !showMenu">
         {{ showMenu ? 'Hide' : 'Show'}} Menu
       </button>
 
@@ -30,13 +38,13 @@ const showMenu = ref(false);
   align-items: center
   justify-content: center
 
-  &__menu
-    min-height: 100%
-
-  &__menu-btn
+  &__btn
     padding: 10px 20px
     margin-bottom: 20px
     min-width: 200px
+
+  &__menu
+    min-height: 100%
 
   &__list
     &.v-enter-active,
@@ -51,5 +59,4 @@ const showMenu = ref(false);
     &.v-leave-to
       opacity: 0
       transform: translateY(20px)
-
 </style>
