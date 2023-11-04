@@ -1,19 +1,59 @@
 <script setup>
+import { shuffleArray } from "@/helpers";
+import { ref } from "vue";
 
+const randomColor = () => {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  return '#' + randomColor;
+};
+
+const colors = ref(Array.from({length: 25}, () => randomColor()));
 </script>
 
 <template>
   <div class="animations">
     <h1>Animations</h1>
+    <button class="animations__btn" type="button" @click="shuffleArray(colors)">Shuffle</button>
+
+    <div class="animations__box-wrapper">
+      <div
+        v-for="(color, i) in colors"
+        :key="color"
+        class="animations__box"
+        :style="{ backgroundColor: color }"
+        @click="colors.splice(i, 1)"
+      />
+    </div>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .animations {
-    min-height: 100vh;
+<style lang="scss">
+.animations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__btn {
+    padding: 10px 20px;
+    margin: 10px;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  &__box-wrapper {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 500px;
+    max-width: 550px;
+    gap: 5px;
+  }
+
+  &__box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid gray;
   }
 }
 </style>
