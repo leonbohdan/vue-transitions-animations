@@ -23,7 +23,7 @@ import HelloWorld from './components/HelloWorld.vue';
     </div>
   </header>
 
-  <RouterView />
+  <RouterView v-motion-slide-left />
 </template>
 
 <style scoped>
