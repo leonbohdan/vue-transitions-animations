@@ -4,6 +4,7 @@ import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue';
 import { MotionPlugin } from '@vueuse/motion';
+import VWave from 'v-wave';
 
 import App from './App.vue';
 import router from './router';
@@ -14,5 +15,6 @@ app.use(createPinia());
 app.use(router);
 app.use(autoAnimatePlugin);
 app.use(MotionPlugin);
+app.use(VWave);
 
 app.mount('#app');

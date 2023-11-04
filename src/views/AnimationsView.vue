@@ -13,7 +13,7 @@ const colors = ref(Array.from({length: 25}, () => randomColor()));
 <template>
   <div class="animations">
     <h1>Animations</h1>
-    <button class="animations__btn" type="button" @click="shuffleArray(colors)">Shuffle</button>
+    <button v-wave class="animations__btn" type="button" @click="shuffleArray(colors)">Shuffle</button>
 
     <div v-auto-animate class="animations__box-wrapper">
       <div
