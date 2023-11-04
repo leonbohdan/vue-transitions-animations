@@ -11,11 +11,11 @@ const colors = ref(Array.from({length: 25}, () => randomColor()));
 </script>
 
 <template>
-  <div class="animations">
+  <div v-wave class="animations">
     <h1>Animations</h1>
-    <button v-wave class="animations__btn" type="button" @click="shuffleArray(colors)">Shuffle</button>
+    <button v-wave-trigger class="animations__btn" type="button" @click="shuffleArray(colors)">Shuffle</button>
 
-    <div v-auto-animate class="animations__box-wrapper">
+    <div v-auto-animate v-wave class="animations__box-wrapper">
       <div
         v-for="(color, i) in colors"
         :key="color"
@@ -45,7 +45,7 @@ const colors = ref(Array.from({length: 25}, () => randomColor()));
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 500px;
+    height: 550px;
     max-width: 550px;
     gap: 5px;
   }
