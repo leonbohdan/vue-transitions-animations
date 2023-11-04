@@ -12,6 +12,7 @@
   "dependencies": {
     "@formkit/auto-animate": "^0.8.0",
     "@vueuse/motion": "^2.0.0",
+    "gsap": "^3.12.2",
     "pinia": "^2.1.7",
     "v-wave": "^1.5.1",
     "vue": "^3.3.4",

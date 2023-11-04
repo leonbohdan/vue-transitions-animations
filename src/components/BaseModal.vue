@@ -7,10 +7,10 @@ const transitionStore = useTransitionStore();
 <template>
   <Transition duration="1400">
     <div v-if="transitionStore.showModal" class="modal__wrapper">
-      <div class="modal__bg" @click="transitionStore.toggleModal()"/>
+      <div class="modal__bg" @click="transitionStore.toggleModal(false)"/>
 
       <div class="modal">
-        <button class="modal__close" @click="transitionStore.toggleModal()">X</button>
+        <button class="modal__close" @click="transitionStore.toggleModal(false)">X</button>
         <div class="modal__content">
           <h2>Hello World</h2>
         </div>

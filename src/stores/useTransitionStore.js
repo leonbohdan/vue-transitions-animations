@@ -9,8 +9,8 @@ export const useTransitionStore = defineStore('transitionStore', {
   },
 
   actions: {
-    toggleModal() {
-      this.showModal = !this.showModal;
+    toggleModal(payload) {
+      this.showModal = payload;
     },
   },
 });

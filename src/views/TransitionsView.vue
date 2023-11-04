@@ -1,18 +1,24 @@
 <script setup>
 import { ref } from "vue";
 import { useTransitionStore } from "@/stores/useTransitionStore";
+import GsapTransition from "@/components/GsapTransition.vue";
 
 const transitionStore = useTransitionStore();
 
 const showMenu = ref(false);
+const showGsap = ref(false);
 </script>
 
 <template>
   <div class="transitions">
     <h1>Transitions</h1>
 
-    <button v-wave class="transitions__btn" @click="transitionStore.toggleModal()">
+    <button v-wave class="transitions__btn" @click="transitionStore.toggleModal(true)">
       Show Modal
+    </button>
+
+    <button v-wave class="transitions__btn" @click="showGsap = !showGsap">
+      Show GSAP
     </button>
 
     <div class="transitions__menu">
@@ -28,6 +34,10 @@ const showMenu = ref(false);
         </ul>
       </Transition>
     </div>
+
+    <GsapTransition>
+      <div v-if="showGsap" class="transitions__circle"/>
+    </GsapTransition>
   </div>
 </template>
 
@@ -47,6 +57,9 @@ const showMenu = ref(false);
     min-height: 100%
 
   &__list
+    position: absolute
+    bottom: 0
+
     &.v-enter-active,
     &.v-leave-active
       transition: opacity 0.5s ease, transform 0.5s ease
@@ -59,4 +72,12 @@ const showMenu = ref(false);
     &.v-leave-to
       opacity: 0
       transform: translateY(20px)
+
+  &__circle
+    position: absolute
+    bottom: -100px
+    background-color: green
+    width: 150px
+    min-height: 150px
+    border-radius: 50%
 </style>
