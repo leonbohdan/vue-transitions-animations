@@ -15,7 +15,7 @@ const colors = ref(Array.from({length: 25}, () => randomColor()));
     <h1>Animations</h1>
     <button class="animations__btn" type="button" @click="shuffleArray(colors)">Shuffle</button>
 
-    <div class="animations__box-wrapper">
+    <div v-auto-animate class="animations__box-wrapper">
       <div
         v-for="(color, i) in colors"
         :key="color"
