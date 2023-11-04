@@ -2,11 +2,13 @@
 import { ref } from "vue";
 import { useTransitionStore } from "@/stores/useTransitionStore";
 import GsapTransition from "@/components/GsapTransition.vue";
+import BounceTransition from "@/components/BounceTransition.vue";
 
 const transitionStore = useTransitionStore();
 
 const showMenu = ref(false);
 const showGsap = ref(false);
+const showBounce = ref(false);
 </script>
 
 <template>
@@ -19,6 +21,10 @@ const showGsap = ref(false);
 
     <button v-wave class="transitions__btn" @click="showGsap = !showGsap">
       Show GSAP
+    </button>
+
+    <button v-wave class="transitions__btn" @click="showBounce = !showBounce">
+      Show Bounce
     </button>
 
     <div class="transitions__menu">
@@ -38,6 +44,10 @@ const showGsap = ref(false);
     <GsapTransition>
       <div v-if="showGsap" class="transitions__circle"/>
     </GsapTransition>
+
+    <BounceTransition>
+      <div v-if="showBounce" class="transitions__circle"/>
+    </BounceTransition>
   </div>
 </template>
 

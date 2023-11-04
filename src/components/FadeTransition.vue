@@ -1,11 +1,3 @@
-<script setup>
-defineProps({
-  name: {
-    type: String,
-  },
-});
-</script>
-
 <template>
   <Transition name="fade">
     <slot/>
